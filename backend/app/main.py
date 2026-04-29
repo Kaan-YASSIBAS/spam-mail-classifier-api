@@ -5,8 +5,18 @@ import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(title="Spam Mail Classifier API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 MODEL_PATH = Path(__file__).resolve().parent / "model" / "spam_classifier_model.pkl"
 model = joblib.load(MODEL_PATH)

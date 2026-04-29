@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Mail Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="card">
+            <h1>Spam Mail Classifier</h1>
+            <p class="subtitle">
+                Enter a message and classify it as spam or ham using a Machine Learning model.
+            </p>
+
+            <form id="classificationForm">
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea
+                        id="message"
+                        rows="7"
+                        placeholder="Example: Congratulations! You won a free prize. Click now!"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit">Classify Message</button>
+            </form>
+
+            <div id="result" class="result hidden"></div>
+            <div id="error" class="error hidden"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
