@@ -34,3 +34,20 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest -v
+
+  docker-build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build backend Docker image
+        run: |
+          docker build -t spam-mail-classifier-api ./backend
+
+      - name: Build frontend Docker image
+        run: |
+          docker build -t spam-mail-classifier-frontend ./frontend
